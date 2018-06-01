@@ -34,13 +34,10 @@ public class FormularioLogin extends JFrame {
 	 */
 	public FormularioLogin() {
 		Funcoes f = new Funcoes();
-		setAlwaysOnTop(true);
 		setTitle("Sistema Banc\u00E1rio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(450, 300);
 		setLocationRelativeTo(null);		
-		System.out.println(getHeight());
-		System.out.println(getWidth());
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
@@ -54,11 +51,14 @@ public class FormularioLogin extends JFrame {
 		lblNewLabel.setBounds(102, 94, 70, 30);
 		contentPane.add(lblNewLabel);
 		JButton btnEntra = new JButton("Entrar");
-		btnEntra.addMouseListener(new MouseAdapter() {
+		btnEntra.addActionListener(new ActionListener() {
+			
 			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				f.confereLogin(tFusuario.getText(), pFsenha.getPassword());
+			public void actionPerformed(ActionEvent e) {
 				dispose();
+				f.confereLogin(tFusuario.getText(), pFsenha.getPassword());
+				
+				
 			}
 		});
 		
